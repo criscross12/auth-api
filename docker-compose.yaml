@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - "27088:27017" # Exponer el puerto 27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin # Usuario por defecto
+      MONGO_INITDB_ROOT_PASSWORD: adminpassword # Contraseña por defecto
+      MONGO_INITDB_DATABASE: nutrina # Base de datos inicial
+    volumes:
+      - mongodb_data:/data/db # Persistencia de datos
+
+volumes:
+  mongodb_data:
